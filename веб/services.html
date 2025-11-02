@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Послуги - IFInvest</title>
+    <link rel="stylesheet" href="css/style.css"> 
+    <style>
+        .modal {
+            display: none;
+            position: fixed; 
+            z-index: 1000; 
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8); 
+            padding-top: 50px;
+        }
+
+        .modal-content {
+            background-color: var(--light-gray);
+            margin: 5% auto;
+            padding: 30px;
+            border: 2px solid var(--orange);
+            width: 90%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .modal-content h3 {
+            color: var(--orange);
+            font-family: var(--font-heading);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .close-btn {
+            color: var(--white);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: var(--orange);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-content input[type="text"],
+        .modal-content input[type="tel"],
+        .modal-content select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--orange);
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 15px;
+            resize: vertical;
+            background-color: var(--medium-gray);
+            color: var(--white);
+        }
+        
+        .consent-text {
+            font-size: 0.85em;
+            color: #ccc;
+            margin-top: 15px;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="images/ifinvest_logo.png" alt="Логотип IFInvest">
+            <span>IFInvest</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="about.html">Про нас</a></li>
+                <li><a href="services.html">Послуги</a></li> 
+                <li><a href="resourses.html">Корисні посилання</a></li> 
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        
+        <section class="hero-section" style="padding: 50px 0;">
+            <h1 style="font-size: 3.5em;">Наші <span class="highlight">Послуги</span></h1>
+            <p style="font-size: 1.5em; max-width: 900px; margin: 0 auto; margin-top: 20px; font-weight: 300;">
+                Індивідуальна інвестиційна освіта та підтримка для кожного рівня досвіду
+            </p>
+        </section>
+
+        <section class="beginner-courses" style="background-color: var(--black); padding-bottom: 50px;">
+            <h2 style="margin-bottom: 40px; font-size: 2.2em;">Для <span class="highlight">початківців</span></h2>
+            
+            <p class="subtitle" style="font-size: 1.2em; margin-bottom: 20px;">
+                Почніть свій шлях у світі інвестицій з фундаментальних знань та практичних навичок. Усі курси розраховані на 1 місяць навчання.
+            </p>
+            
+            <div class="cards-container">
+                
+                <div class="card" style="flex: 1 1 300px; padding: 30px;">
+                    <h3>Теоретичний курс</h3>
+                    <p>Комплексний онлайн-курс, що охоплює основи ринку:</p>
+                    <ul class="course-list" style="text-align: center; list-style: disc; margin: 15px 0 25px 20px; color: var(--white);">
+                        <li>Основи ринку</li>
+                        <li>Управління ризиками</li>
+                        <li>Технічний аналіз</li>
+                    </ul>
+                    <p style="font-size: 1.8em; font-weight: bold; color: var(--orange); margin-bottom: 20px;">$199</p>
+                    <a href="#" class="btn open-modal-btn" data-course="Теоретичний курс">Записатися</a>
+                </div>
+
+                <div class="card" style="flex: 1 1 300px; padding: 30px;">
+                    <h3>Теорія + Практика</h3>
+                    <p>Практичне навчання з реальними ринковими симуляціями:</p>
+                    <ul class="course-list" style="text-align: center; list-style: disc; margin: 15px 0 25px 20px; color: var(--white);">
+                        <li>Демонстрації торгівлі в реальному часі</li>
+                        <li>Практичні ризики</li>
+                        <li>Щотижневі оцінки</li>
+                    </ul>
+                    <p style="font-size: 1.8em; font-weight: bold; color: var(--orange); margin-bottom: 20px;">$349</p>
+                    <a href="#" class="btn open-modal-btn" data-course="Теорія + Практика">Записатися</a>
+                </div>
+                
+                <div class="card" style="flex: 1 1 300px; padding: 30px;">
+                    <h3>Ментор + Торгові сигнали</h3>
+                    <p>Персональне керівництво з ринковими сигналами в реальному часі:</p>
+                    <ul class="course-list" style="text-align: center; list-style: disc; margin: 15px 0 25px 20px; color: var(--white);">
+                        <li>Індивідуальне наставництво</li>
+                        <li>Щоденні сигнали</li>
+                        <li>Підтримка 24/7</li>
+                    </ul>
+                    <p style="font-size: 1.8em; font-weight: bold; color: var(--orange); margin-bottom: 20px;">$499</p>
+                    <a href="#" class="btn open-modal-btn" data-course="Ментор + Торгові сигнали">Записатися</a>
+                </div>
+            </div>
+        </section>
+        
+        <hr style="border: 1px solid var(--orange); width: 80%; margin: 40px auto;">
+
+        <section class="experienced-courses">
+            <h2 style="margin-bottom: 40px; font-size: 2.2em;">Для <span class="highlight">досвідчених інвесторів</span></h2>
+            
+            <p class="subtitle" style="font-size: 1.2em; margin-bottom: 20px;">
+                Поглиблені стратегії та ексклюзивні інструменти для максимізації прибутку. Усі програми розраховані на 1 місяць.
+            </p>
+
+            <div class="cards-container">
+                
+                <div class="card" style="flex: 1 1 300px; padding: 30px;">
+                    <h3>Розширена теорія</h3>
+                    <p>Глибоке занурення в складні торгові стратегії та ринкову психологію:</p>
+                    <ul class="course-list" style="text-align: center; list-style: disc; margin: 15px 0 25px 20px; color: var(--white);">
+                        <li>Розширені патерни</li>
+                        <li>Ринкова психологія</li>
+                        <li>Оптимізація портфеля</li>
+                    </ul>
+                    <p style="font-size: 1.8em; font-weight: bold; color: var(--orange); margin-bottom: 20px;">$599</p>
+                    <a href="#" class="btn open-modal-btn" data-course="Розширена теорія">Записатися</a>
+                </div>
+
+                <div class="card" style="flex: 1 1 300px; padding: 30px;">
+                    <h3>Елітна практика</h3>
+                    <p>Високорівневі торгові симуляції з інституційними інструментами:</p>
+                    <ul class="course-list" style="text-align: center; list-style: disc; margin: 15px 0 25px 20px; color: var(--white);">
+                        <li>Професійні платформи</li>
+                        <li>Розширена аналітика</li>
+                        <li>Моделювання ризиків</li>
+                    </ul>
+                    <p style="font-size: 1.8em; font-weight: bold; color: var(--orange); margin-bottom: 20px;">$799</p>
+                    <a href="#" class="btn open-modal-btn" data-course="Елітна практика">Записатися</a>
+                </div>
+                
+                <div class="card" style="flex: 1 1 300px; padding: 30px;">
+                    <h3>Преміум сигнали</h3>
+                    <p>Ексклюзивні торгові сигнали від наших топ-аналітиків:</p>
+                    <ul class="course-list" style="text-align: center; list-style: disc; margin: 15px 0 25px 20px; color: var(--white);">
+                        <li>VIP сигнали</li>
+                        <li>Ринкові інсайти</li>
+                        <li>Пріоритетна підтримка</li>
+                    </ul>
+                    <p style="font-size: 1.8em; font-weight: bold; color: var(--orange); margin-bottom: 20px;">$999</p>
+                    <a href="#" class="btn open-modal-btn" data-course="Преміум сигнали">Записатися</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="contact-info">
+                <h3>Зв'яжіться з нами</h3>
+                <p>Телефон: +380 (44) 123-4567</p>
+                <p>Email: <a href="mailto:info@ifinvest.com.ua">info@ifinvest.com.ua</a></p>
+            </div>
+            <div class="office-location">
+                <h3>Розташування офісу</h3>
+                <p>Вул. Хрещатик, 10</p>
+                <p>Київ, 01001</p>
+                <p>Україна</p>
+            </div>
+            <div class="quick-links">
+                <h3>Швидкі посилання</h3>
+                <ul>
+                    <li><a href="about.html">Про нас</a></li>
+                    <li><a href="services.html">Послуги</a></li>
+                    <li><a href="resourses.html">Корисні посилання</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 IFInvest. Всі права захищені. | Інвестиції, Торгівля, Фінанси</p>
+        </div>
+    </footer>
+
+    <div id="registrationModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3>Запис на курс: <span id="courseTitle" style="color: var(--white); font-weight: normal;"></span></h3>
+            
+            <form action="#" method="POST">
+                <label for="course-select" style="color: var(--white);">Обраний курс:</label>
+                <select id="course-select" name="course-name" required>
+                    <option value="" disabled selected>Виберіть курс (автоматично)</option>
+                    <option value="Теоретичний курс">Теоретичний курс ($199)</option>
+                    <option value="Теорія + Практика">Теорія + Практика ($349)</option>
+                    <option value="Ментор + Торгові сигнали">Ментор + Торгові сигнали ($499)</option>
+                    <option value="Розширена теорія">Розширена теорія ($599)</option>
+                    <option value="Елітна практика">Елітна практика ($799)</option>
+                    <option value="Преміум сигнали">Преміум сигнали ($999)</option>
+                </select>
+
+                <label for="name" style="color: var(--white);">Ваше ім'я:</label>
+                <input type="text" id="name" name="name" required placeholder="Іван Петренко">
+
+                <label for="phone" style="color: var(--white);">Номер телефону:</label>
+                <input type="tel" id="phone" name="phone" required placeholder="+38 (XXX) XXX XX XX">
+                
+                <p class="consent-text">
+                    Натискаючи кнопку "Відправити", ви даєте згоду на обробку персональних даних. Найближчим часом з вами зв'яжеться наш менеджер для підтвердження реєстрації та обговорення деталей оплати.
+                </p>
+
+                <button type="submit" class="btn" style="width: 100%; margin-top: 20px;">Відправити</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+       
+        const modal = document.getElementById("registrationModal");
+        const openModalBtns = document.querySelectorAll(".open-modal-btn");
+        const span = document.getElementsByClassName("close-btn")[0];
+        const courseTitleElement = document.getElementById("courseTitle");
+        const courseSelectElement = document.getElementById("course-select");
+
+      
+        openModalBtns.forEach(btn => {
+            btn.onclick = function(e) {
+                e.preventDefault(); 
+                const courseName = this.getAttribute('data-course');
+                
+               
+                courseTitleElement.textContent = courseName;
+
+               
+                for (let i = 0; i < courseSelectElement.options.length; i++) {
+                    const optionText = courseSelectElement.options[i].text;
+                    if (optionText.includes(courseName)) {
+                        courseSelectElement.value = courseName;
+                        break;
+                    }
+                }
+
+                modal.style.display = "block";
+            }
+        });
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
